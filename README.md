@@ -62,7 +62,35 @@ have a natural, real place to live:
 
 ---
 ## 4. Project structure
-​The repo is organised as follows: index.html is the StreamDemo app under test, pages/streaming_page.py is the Python Page Object Model, and pytest.ini holds the pytest configuration. The tests/ folder contains conftest.py (fixtures for the browser page and the API context), test_continue_watching.py (boundary value, decision table, and equivalence tests), test_api.py (tests against the real TVMaze API), and the three BDD step-definition files: test_bdd_continue_watching.py, test_bdd_download.py, and test_bdd_search.py. The features/ folder holds the matching Gherkin files: continue_watching.feature, download_eligibility.feature, and search.feature. MANUAL_TESTS.md documents six manual/exploratory test cases with reasoning for each. The ts-example/ folder holds the small TypeScript/Playwright port (see section 8), and .github/workflows/tests.yml is the CI pipeline that runs the full Python suite on every push
+​qe-showcase-fx-digital/
+│
+├── index.html                    ← StreamDemo app (the system under test)
+├── pytest.ini                    ← pytest configuration
+│
+├── pages/
+│   └── streaming_page.py         ← Page Object Model (Python)
+│
+├── tests/
+│   ├── conftest.py                 ← fixtures: browser page + API context
+│   ├── test_continue_watching.py   ← boundary value + decision table + equivalence tests
+│   ├── test_api.py                 ← tests against the real TVMaze public API
+│   ├── test_bdd_continue_watching.py ← BDD step defs
+│   ├── test_bdd_download.py          ← BDD step defs
+│   └── test_bdd_search.py            ← BDD step defs
+│
+├── features/
+│   ├── continue_watching.feature     ← Gherkin: boundary values
+│   ├── download_eligibility.feature  ← Gherkin: decision table
+│   └── search.feature                ← Gherkin: equivalence partitioning
+│
+├── MANUAL_TESTS.md               ← 6 manual/exploratory test cases + reasoning
+│
+├── ts-example/                   ← small TypeScript/Playwright port (see section 8)
+│   ├── pages/streaming-page.ts
+│   ├── tests/streaming.spec.ts
+│   └── playwright.config.ts
+│
+└── .github/workflows/tests.yml   ← CI pipeline (GitHub Actions)
 
 ---
 
