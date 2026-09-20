@@ -22,3 +22,18 @@ def app_page(page):
     page.evaluate("() => localStorage.clear()")
     page.reload()
     return page
+@pytest.fixture(scope="session")
+def api_context(playwright):
+    """
+    A client for making direct HTTP requests to a real public API
+    (TVMaze), separate from the browser entirely.
+
+    Scoped to "session" rather than "function" — unlike the browser page,
+    this client doesn't hold per-test state like cookies or a logged-in
+    session, so there's no isolation risk in reusing one client across
+    every API test. Creating a fresh one per test would just be slower
+    for no real benefit.
+    """
+    context = playwright.request.new_context(base_url="https://api.tvmaze.com")
+    yield context
+    context.dispose()
