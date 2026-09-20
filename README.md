@@ -61,7 +61,34 @@ have a natural, real place to live:
 | Equivalence partitioning | Search box (match / no-match / empty query) |
 
 ---
+## 4. Project structure
+​```
+index.html                     StreamDemo app (system under test)
+pages/streaming_page.py        Page Object Model - Python
+pytest.ini                     pytest config (test discovery, pythonpath)
 
+tests/
+  conftest.py                  Fixtures: app_page (browser), api_context (API)
+  test_continue_watching.py    Boundary value + decision table + equivalence tests
+  test_api.py                  Tests against the real TVMaze public API
+  test_bdd_continue_watching.py  Step defs for continue_watching.feature
+  test_bdd_download.py           Step defs for download_eligibility.feature
+  test_bdd_search.py             Step defs for search.feature
+
+features/
+  continue_watching.feature    Gherkin - boundary values, plain English
+  download_eligibility.feature Gherkin - decision table, plain English
+  search.feature               Gherkin - equivalence partitioning, plain English
+
+MANUAL_TESTS.md               6 manual/exploratory test cases + reasoning
+
+ts-example/                   Small TypeScript/Playwright port (see section 8)
+  pages/streaming-page.ts
+  tests/streaming.spec.ts
+  playwright.config.ts
+
+.github/workflows/tests.yml   CI pipeline - runs full Python suite on every push
+​```
 
 ---
 
