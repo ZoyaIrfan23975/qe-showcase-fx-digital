@@ -62,35 +62,27 @@ have a natural, real place to live:
 
 ---
 ## 4. Project structure
-​qe-showcase-fx-digital/
-│
-├── index.html                    ← StreamDemo app (the system under test)
-├── pytest.ini                    ← pytest configuration
-│
-├── pages/
-│   └── streaming_page.py         ← Page Object Model (Python)
-│
-├── tests/
-│   ├── conftest.py                 ← fixtures: browser page + API context
-│   ├── test_continue_watching.py   ← boundary value + decision table + equivalence tests
-│   ├── test_api.py                 ← tests against the real TVMaze public API
-│   ├── test_bdd_continue_watching.py ← BDD step defs
-│   ├── test_bdd_download.py          ← BDD step defs
-│   └── test_bdd_search.py            ← BDD step defs
-│
-├── features/
-│   ├── continue_watching.feature     ← Gherkin: boundary values
-│   ├── download_eligibility.feature  ← Gherkin: decision table
-│   └── search.feature                ← Gherkin: equivalence partitioning
-│
-├── MANUAL_TESTS.md               ← 6 manual/exploratory test cases + reasoning
-│
-├── ts-example/                   ← small TypeScript/Playwright port (see section 8)
-│   ├── pages/streaming-page.ts
-│   ├── tests/streaming.spec.ts
-│   └── playwright.config.ts
-│
-└── .github/workflows/tests.yml   ← CI pipeline (GitHub Actions)
+​- `index.html` - the StreamDemo app under test
+- `pytest.ini` - pytest configuration
+- `pages/streaming_page.py` - the Python Page Object Model
+
+**`tests/` folder:**
+- `conftest.py` - fixtures for the browser page and the API context
+- `test_continue_watching.py` - boundary value, decision table, and equivalence tests
+- `test_api.py` - tests against the real TVMaze public API
+- `test_bdd_continue_watching.py` - BDD step definitions
+- `test_bdd_download.py` - BDD step definitions
+- `test_bdd_search.py` - BDD step definitions
+
+**`features/` folder (Gherkin):**
+- `continue_watching.feature` - boundary values
+- `download_eligibility.feature` - decision table
+- `search.feature` - equivalence partitioning
+
+**Other top-level items:**
+- `MANUAL_TESTS.md` - six manual/exploratory test cases with reasoning
+- `ts-example/` - small TypeScript/Playwright port (see section 8)
+- `.github/workflows/tests.yml` - the CI pipeline (GitHub Actions)
 
 ---
 
