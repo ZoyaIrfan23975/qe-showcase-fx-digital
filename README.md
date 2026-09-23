@@ -136,17 +136,3 @@ owner, a client) could read the test intent without knowing Python.
 
 ---
 
-=
-
----
-
-
-=
-
----
-
-## 11. How to run everything locally
-
-**Python suite (UI + API + BDD, 25 tests total):**
-
-
