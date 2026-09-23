@@ -17,7 +17,7 @@ API testing, BDD/Gherkin, manual/exploratory testing, and CI.
 
 ---
 
-## 3. The app under test: StreamDemo
+## 2. The app under test: StreamDemo
 
 `index.html` is a single, self-contained HTML file (no backend, no build
 step) that behaves like a simplified streaming platform:
@@ -46,7 +46,7 @@ have a natural, real place to live:
 | Equivalence partitioning | Search box (match / no-match / empty query) |
 
 ---
-## 4. Project structure
+## 3. Project structure
 ​- `index.html` - the StreamDemo app under test
 - `pytest.ini` - pytest configuration
 - `pages/streaming_page.py` - the Python Page Object Model
@@ -71,7 +71,7 @@ have a natural, real place to live:
 
 ---
 
-## 5. Automated UI tests (Python + Playwright + pytest)
+## 4. Automated UI tests (Python + Playwright + pytest)
 
 **File:** `tests/test_continue_watching.py` (12 test executions)
 
@@ -98,7 +98,7 @@ have a natural, real place to live:
 
 ---
 
-## 6. API tests (Python + Playwright's APIRequestContext)
+## 5. API tests (Python + Playwright's APIRequestContext)
 
 **File:** `tests/test_api.py` (4 tests, against the real TVMaze public API)
 
@@ -115,7 +115,7 @@ re-creating it before every single test would just be wasted setup time.
 
 ---
 
-## 7. BDD / Gherkin layer (pytest-bdd)
+## 6. BDD / Gherkin layer (pytest-bdd)
 
 **Files:** `features/*.feature` (Gherkin) + `tests/test_bdd_*.py` (step definitions)
 
