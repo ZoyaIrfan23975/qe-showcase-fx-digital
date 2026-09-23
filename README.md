@@ -2,28 +2,13 @@
 
 A complete Quality Engineering framework built around a self-contained,
 CTV-style streaming demo app ("StreamDemo"). It covers automated UI testing,
-API testing, BDD/Gherkin, manual/exploratory testing, and CI - with the
-reasoning behind every decision documented, not just the code.
+API testing, BDD/Gherkin, manual/exploratory testing, and CI.
+---
+
 
 ---
 
-## 1. Why this project exists
-
-FX Digital's interview process asks candidates to bring a working QE
-framework and explain it live. Rather than automate an existing public demo
-site (which is unstable and out of my control), I built my own minimal
-single-page app, "StreamDemo," so I could:
-
-- Deliberately design specific, testable behaviours (boundary conditions,
-  decision-table logic, equivalence classes) into the app itself
-- Fully own and explain every line of the system under test, not just the
-  tests
-- Theme it around streaming/CTV to match FX Digital's business as a
-  Connected TV / streaming agency
-
----
-
-## 2. Tech stack
+## 1. Tech stack
 
 - **Python + Playwright + pytest** - primary automation stack
 - **pytest-bdd** - Gherkin/BDD layer over the same application
@@ -147,55 +132,16 @@ owner, a client) could read the test intent without knowing Python.
   `<show_id>`, `<progress>`) so one line of Gherkin can drive many test runs
   via a `Scenario Outline` + `Examples` table
 
-**Why this matters as a talking point:** it shows the underlying test design
-technique (boundary value, decision table, equivalence partitioning) isn't
-tied to one syntax or tool - the same reasoning can be expressed as plain
-pytest or as living-documentation Gherkin, depending on the audience.
+
 
 ---
 
-## 8. TypeScript example (small, honest, secondary)
-
-**Folder:** `ts-example/`
-
-Python is my strongest language and the focus of this repo. This folder is a
-small, deliberately limited port of the core suite (9 tests: the same
-boundary values and decision table cases) to TypeScript + Playwright Test,
-showing that the underlying approach - Page Object Model, boundary values,
-decision tables - transfers across languages. It is not meant to claim the
-same depth of TypeScript experience as the Python work above.
+=
 
 ---
 
-## 9. Manual / exploratory testing
 
-**File:** `MANUAL_TESTS.md`
-
-6 test cases for things that are either genuinely hard to automate
-meaningfully, or require human judgement rather than a pass/fail assertion -
-for example, whether a keyboard focus outline is actually visible enough on
-a dark background, or whether a CTV app has real D-pad/arrow-key navigation
-(spoiler: this app currently doesn't, which is documented as a real, honest
-finding rather than a fabricated pass). Each case explains WHY it's manual,
-not just what to check - that reasoning is the actual point of the file.
-
----
-
-## 10. CI/CD (GitHub Actions)
-
-**File:** `.github/workflows/tests.yml`
-
-Every push or pull request to the `master` branch automatically:
-1. Checks out the code
-2. Sets up Python 3.11
-3. Installs pytest, Playwright, pytest-playwright, and pytest-bdd
-4. Installs the Chromium browser
-5. Runs the full pytest suite
-6. On any failure, uploads screenshots, video, and a Playwright trace file
-   as a downloadable artifact - so a failure can be debugged without
-   needing to reproduce it locally first
-
-See the repo's **Actions** tab for run history.
+=
 
 ---
 
