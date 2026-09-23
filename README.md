@@ -87,14 +87,7 @@ have a natural, real place to live:
   a query that matches, and a query that matches nothing, rather than
   testing every possible string
 
-**Design decisions worth explaining in the interview:**
-- **Page Object Model** (`pages/streaming_page.py`) - all `data-testid`
-  selectors live in one class, so if the UI changes, only this file needs
-  updating, not every test
-- **Test independence** - the `app_page` fixture in `conftest.py` clears
-  `localStorage` and reloads before every test, so tests never depend on
-  each other's leftover state
-- **`data-testid` over CSS/text selectors** - resilient to visual redesigns
+
 
 ---
 
